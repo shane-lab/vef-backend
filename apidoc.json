@@ -1,0 +1,13 @@
+{
+    "name": "vef api",
+    "version": "1.0.0",
+    "description": "API for VEF (Video Embedded Feedback)",
+    "title": "VEF API - apidocs",
+    "url": "/api",
+    "order": [
+        "Generics",
+        "Rooms",
+        "Markers",
+        "Temporary"
+    ]
+}

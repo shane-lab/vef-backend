@@ -1,0 +1,15 @@
+extends layout
+
+block imports
+    link(rel="import" href="/webcomponents/polymer/vef-video/vef-video-recorder.html")
+    link(rel="import" href="/webcomponents/polymer/vef-video/vef-video-src.html")
+
+block content
+  h2 vef video player tests
+  //-paper-video(controls src="http://vjs.zencdn.net/v/oceans.mp4")
+  vef-video-recorder(controls constraints='{"video": {"width": 250, "height": 250}}')
+  vef-video-src(controls src="http://vjs.zencdn.net/v/oceans.mp4")
+  //-video(autoplay="true" id="stream" style="background: #aaa")
+
+block scripts
+  script(src="/javascripts/stream.js")

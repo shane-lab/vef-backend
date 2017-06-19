@@ -1,0 +1,15 @@
+extends ../layout
+
+//- block imports
+//-     link(rel="import" href="/webcomponents/polymer/vef-video/vef-video-recorder.html")
+//-     link(rel="import" href="/webcomponents/polymer/vef-video/vef-video-src.html")
+
+block content
+  h2 socket send
+  video(id='video' width='1280' height='720')
+
+block scripts
+  script(src='/socket.io/socket.io.js')
+  script(src='/javascripts/socket.io-stream.js')
+  script(src='javascripts/PeerConnection.js')
+  script(src="/javascripts/test.js")

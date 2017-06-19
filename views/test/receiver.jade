@@ -1,0 +1,15 @@
+extends ../layout
+
+//- block imports
+//-     link(rel="import" href="/webcomponents/polymer/vef-video/vef-video-recorder.html")
+//-     link(rel="import" href="/webcomponents/polymer/vef-video/vef-video-src.html")
+
+block content
+  h2 socket play
+  audio(id='audio')
+  video(id='video' width='1280' height='720')
+
+block scripts
+  script(src='/socket.io/socket.io.js')
+  | <script> let vid = document.querySelector('video'); let canvas = document.createElement('canvas'); var ctx = canvas.getContext('2d'); canvas.width = ctx.width = vid.width; canvas.height = ctx.height = vid.height; /* video fallback */ vid.style.background = '#000'; var socket = io(); socket.on('stream', (data) => { var blob = new Blob([data], { type: 'video/mp4; codecs=v8' }); vid.src = URL.createObjectURL(blob); vid.onloadedmetadata = function(e) { vid.play(); } /* process fallback image */ /*ctx.draw(vid, 0, 0, canvas.width, canvas.height);*/ }); </script>
+  | <script> //let audio = document.querySelector('audio'); var socket = io(); socket.on('stream', (data) => { console.log(data); /*if (data !== undefined && data != null)*/ { var blob = new Blob([data], { 'type': 'audio/ogg; codecs=opus' }); audio.src = URL.createObjectURL(blob); audio.play(); } }); </script>

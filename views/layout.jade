@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    //- link(rel="import" href="/bower_components/polymer/polymer.html")
+    block imports
+  body
+    block content
+
+    // load all scripts
+    script(src="/bower_components/jquery/dist/jquery.min.js")
+    //- script(src="/bower_components/webcomponentsjs/webcomponents.min.js")
+    block scripts
